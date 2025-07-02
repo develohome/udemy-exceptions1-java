@@ -1,14 +1,13 @@
-import tratamentodeexcecoes.Tratamento;
+import tratamentodeexcecoes.MuitoRuin;
 
 import java.text.ParseException;
-import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) throws ParseException {
 
-        Tratamento tratamento = new Tratamento();
+        MuitoRuin muitoRuin = new MuitoRuin();
         //tratamento.tratamento();
-        Tratamento.tratamentoMuitoRuim();
+        MuitoRuin.tratamentoMuitoRuim();
     }
 }

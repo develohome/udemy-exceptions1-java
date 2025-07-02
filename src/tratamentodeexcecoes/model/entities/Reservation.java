@@ -40,9 +40,20 @@ public class Reservation {
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
-    public void updadeDates(Date checkIn, Date checkOut) {
+    public String updadeDates(Date checkIn, Date checkOut) {
+        Date now = new Date();
+
+        if (checkIn.before(now) || checkOut.before(now)) {
+            return "Não é possível cadastrar datas passadas";
+        }
+        if (!checkOut.after(checkIn)) {
+            return "Data de saída não pode ser menor que a data de entrada";
+        }
+
+
         this.checkIn = checkIn;
         this.checkOut = checkOut;
+        return null;
     }
 
     @Override
