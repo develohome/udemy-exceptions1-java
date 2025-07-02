@@ -54,8 +54,16 @@ public class Tratamento {
             System.out.println("Check-out date: (dd/MM/yyyy):)");
             checkOut = sdf.parse(sc.next());
 
-            reservation.updadeDates(checkIn, checkOut);
-            System.out.println("Reservation: " + reservation);
+            Date now = new Date();
+
+            if (checkIn.before(now) || checkOut.before(now)) {
+                System.out.println("Error in reservation: check-out e check-in devem ser datas futuras");
+            } else if (!checkOut.after(checkIn)) {
+                System.out.println("Error in reservation: Check-out date must be after check-in date");
+            } else {
+                reservation.updadeDates(checkIn, checkOut);
+                System.out.println("Reservation: " + reservation);
+            }
         }
         sc.close();
     }
